@@ -1,0 +1,33 @@
+As a user, I want a list of all my contacts to load up the minute I open the application, so I can see who I have available.
+- Code feature to load contacts on page load from database.
+- Contain each contact with their information in a div container field.
+- Ensure page can scroll to capture them all.
+
+As a user, when I click a contact's namme, I want to see all of their information.
+- Make each contact name clickable.
+- On click, have the DB pull up the information and render it.
+- Make sure a user can click the X button to close or click outside of the window to close the popup.
+
+As a user, I want to be able to search and automatically sort a list of contacts so that I can find them easily.
+- Create a search bar.
+- Set contact list to return only contacts that partially match the search criteria entered into the bar, in all fields.
+
+As a user, I want to be able to add a new contact to my list so that I can track new people I've met.
+- Create a new contact button.
+- Create a new contact form.
+- Have button load up form, and submitting adds to database.
+
+As a user, I want to be able to delete contacts from my list so that I can trim my list down to only the most important people.
+- Create a delete contact button that loads for every contact.
+- Have button confirm that users wants to delete the contact.
+- Make sure confirmation deletes user from database when confirmed.
+
+As a user, I want to be able to edit any field in a contact so I can keep them up to date.
+- Add edit field to each contact box.
+- Make sure each field can be edited in contact box.
+- Add confirmation that only saves to DB when confirmed.
+
+As a user, I want to be able to add notes about any conversation I've had with a contact so I can track what we talked about and the last time we connected.
+- Add update button to each contact box.
+- Add date picker and notes field popup when update button is clicked.
+- Make sure update button saves these changes to DB.
