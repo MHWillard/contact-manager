@@ -1,12 +1,26 @@
-class Connection {
-    constructor() {}
+const Client = require('pg').Client
 
-    connect() {
-        console.log("Connected!");
+class Connection {
+    constructor() {
+        this.client;
     }
 
-    kill() {
-        console.log("Connection killed.");
+    setClient() {
+        this.client = new Client({
+            user: 'harvey',
+            host: 'localhost',
+            database: 'contactdb',
+            password: 'dat45586',
+            port: 5432
+        })
+    }
+
+    async connect() {
+        await this.client.connect();
+    }
+
+    async kill() {
+        await this.client.end();
     }
 }
 

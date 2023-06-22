@@ -1,3 +1,4 @@
+
 As a user, I want a list of all my contacts to load up the minute I open the application, so I can see who I have available.
 - Code feature to load contacts on page load from database.
 - Contain each contact with their information in a div container field.

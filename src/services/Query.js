@@ -5,6 +5,10 @@ class Query {
         const queryResult = ["Ayy", "Bee", "Cee"];
         return queryResult;
     }
+
+    async insertQuery(contact) {
+        return true;
+    }
 }
 
 module.exports = {Query}
