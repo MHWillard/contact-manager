@@ -1,4 +1,5 @@
 const Client = require('pg').Client
+require('dotenv').config()
 
 class Connection {
     constructor() {
@@ -7,20 +8,20 @@ class Connection {
 
     setClient() {
         this.client = new Client({
-            user: 'harvey',
-            host: 'localhost',
-            database: 'contactdb',
-            password: 'dat45586',
-            port: 5432
+            user: process.env.USER,
+            host: process.env.HOST,
+            database: process.env.DATABASE,
+            password: process.env.PASSWORD,
+            port: process.env.PORT
         })
     }
 
-    async connect() {
-        await this.client.connect();
+    connect() {
+        this.client.connect();
     }
 
-    async kill() {
-        await this.client.end();
+    kill() {
+        this.client.end();
     }
 }
 
