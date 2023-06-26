@@ -16,11 +16,12 @@ describe('given a database object', () => {
         conn.connect();
 
         const command = "SELECT * FROM contacts";
-        const result = await query.selectQuery(command);
+        const client = conn.getClient();
+        const result = await query.selectQuery(client, command);
 
         conn.kill();
 
-        expect(result).toEqual(expect.any(Array));
+        expect(result).toEqual(expect.any(Object));
     })
 
     test('should be able to insert a new user into a table', async () => {
@@ -32,15 +33,16 @@ describe('given a database object', () => {
         //fields: id, name, email, phone number, job, status, interests, notes, (updates becomes its own table) and they are joined
         //updates: id, entry date, notes
 
+        const client = conn.getClient();
         const newContact = new Contact("testname", "test@testemail.com", "555-1234","Test Dummy","Friend","Video game testing, security testing, shuffleboard","No notes so far");
-        await query.insertQuery(newContact);
+        await query.insertQuery(newContact, client);
 
         const command = "SELECT * FROM contacts where name = 'testname'";
-        const result = await query.selectQuery(command);
+        const result = await query.selectQuery(client, command);
 
         conn.kill();
 
-        expect(result).toEqual(expect.any(Array));
+        expect(result).toEqual(expect.any(Object));
     })
 })
 

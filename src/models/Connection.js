@@ -16,6 +16,10 @@ class Connection {
         })
     }
 
+    getClient() {
+        return this.client;
+    }
+
     connect() {
         this.client.connect();
     }
