@@ -35,7 +35,7 @@ describe('given a database object', () => {
 
         const client = conn.getClient();
         const newContact = new Contact("testname", "test@testemail.com", "555-1234","Test Dummy","Friend","Video game testing, security testing, shuffleboard","No notes so far");
-        await query.insertQuery(newContact, client);
+        await query.insertQuery(client, newContact);
 
         const command = "SELECT * FROM contacts where name = 'testname'";
         const result = await query.selectQuery(client, command);

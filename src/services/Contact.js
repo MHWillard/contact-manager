@@ -9,37 +9,36 @@ class Contact {
         this.notes = notes;
     }
 
-    getName() {
+    get Name() {
         return this.name;
     }
 
-    getEmail() {
+    get Email() {
         return this.email;
     }
 
-    getNumber() {
+    get Number() {
         return this.number;
     }
 
-    getJob() {
+    get Job() {
         return this.job;
     }
 
-    getStatus() {
+    get Status() {
         return this.status;
     }
 
-    getInterests() {
+    get Interests() {
         return this.interests;
     }
 
-    getNotes() {
+    get Notes() {
         return this.notes;
     }
 
-    getContactArray() {
-        //const contactArray = [this.name, this.email, this.number, this.job, this.status, this.interests, this.notes];
-        const contactArray = ['1','2','3','4','5','6','7'];
+    get ContactArray() {
+        const contactArray = [this.name, this.email, this.number, this.job, this.status, this.interests, this.notes];
         return contactArray;
     }
 }

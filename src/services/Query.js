@@ -7,10 +7,14 @@ class Query {
     }
 
     async insertQuery(client, contact) {
-        const queryResult = ['1','2','3','4','5','6','7']
-        //const contactArray = contact.getContactArray();
-        //const queryResult = await client.query('INSERT INTO users (name, email, number, job, status, interests, notes) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', contactArray)
-        return queryResult
+        const fullContact = contact.ContactArray;
+        try {
+            await client.query('INSERT INTO contacts (name, email, phone, job, status, interests, notes) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', fullContact)
+            await client.query('COMMIT')
+        } catch (e) {
+            await client.query('ROLLBACK')
+            throw e
+        }
     }
 }
 
