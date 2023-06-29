@@ -1,8 +1,10 @@
-const Client = require('pg').Client
-//require('dotenv').config({ path: __dirname + '../../.env' });
-const ck = require('ckey');
+import {Client} from 'pg'
 
-class Connection {
+import * as ck from 'ckey'
+
+//import express from 'express'
+
+export class Connection {
     constructor() {
         this.client;
     }
@@ -35,5 +37,3 @@ class Connection {
         this.client.end();
     }
 }
-
-module.exports = {Connection}

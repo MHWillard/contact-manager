@@ -1,4 +1,4 @@
-class Query {
+export class Query {
     constructor() {}
 
     async selectQuery(client, command) {
@@ -17,5 +17,3 @@ class Query {
         }
     }
 }
-
-module.exports = {Query}
