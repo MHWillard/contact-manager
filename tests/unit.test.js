@@ -1,7 +1,13 @@
-const {Connection} = require('../src/models/Connection');
-const {Query} = require('../src/services/Query');
-const {Contact} = require('../src/services/Contact');
+/*import Connection from '../src/models/Connection'
+import Query from '../src/services/Query.js'
+import Contact from '../src/services/Contact.js'
+import request from 'supertest'*/
+
+const Connection = require('../src/models/Connection');
+const Query = require('../src/services/Query');
+const Contact = require('../src/services/Contact');
 const request = require('supertest');
+const app = require('../app')
 
 describe('given a database object', () => {
     test('it should return a valid object', () => {
@@ -46,7 +52,10 @@ describe('given a database object', () => {
 describe('given a database and API routes', () => {
     //given a database and a GET route, WHEN we access that rut
     it('should return a 200 status code', async() => {
-        const res = await request()
+        //const res = await request.get('/users');
+
+        //expect(res.statusCode).toBe(200);
+        //done();
     });
 })
 

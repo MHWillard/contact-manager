@@ -1,4 +1,5 @@
-export class Contact {
+//export default 
+class Contact {
     constructor(name, email, number, job, status, interests, notes) {
         this.name = name;
         this.email = email;
@@ -42,3 +43,5 @@ export class Contact {
         return contactArray;
     }
 }
+
+module.exports = Contact;

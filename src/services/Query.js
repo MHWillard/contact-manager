@@ -1,4 +1,5 @@
-export class Query {
+//export default 
+class Query {
     constructor() {}
 
     async selectQuery(client, command) {
@@ -17,3 +18,5 @@ export class Query {
         }
     }
 }
+
+module.exports = Query;

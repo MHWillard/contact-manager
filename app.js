@@ -1,4 +1,5 @@
-import express from 'express'
+//import express from 'express'
+const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
@@ -9,4 +10,5 @@ app.get('/users', (req, res) => {
   res.json({name: 'user'})
 })
 
-export default app;
+//export default app;
+module.exports = app;

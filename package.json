@@ -12,7 +12,11 @@
     "sequelize": "^6.32.1"
   },
   "name": "contact-manager",
-  "type": "module",
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx)?$": "babel-jest"
+    }
+  },
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -22,9 +26,12 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@types/jest": "^29.5.2",
     "@types/supertest": "^2.0.12",
+    "babel-jest": "^29.5.0",
+    "regenerator-runtime": "^0.13.11",
     "supertest": "^6.3.3",
     "typescript": "^5.1.6"
   }

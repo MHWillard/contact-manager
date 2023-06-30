@@ -1,10 +1,13 @@
-import {Client} from 'pg'
-
-import * as ck from 'ckey'
+//import {Client} from 'pg'
+//import * as ck from 'ckey'
 
 //import express from 'express'
 
-export class Connection {
+const Client = require('pg').Client
+const ck = require('ckey')
+
+//export default 
+class Connection {
     constructor() {
         this.client;
     }
@@ -37,3 +40,5 @@ export class Connection {
         this.client.end();
     }
 }
+
+module.exports = Connection;
