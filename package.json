@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "ckey": "^1.0.3",
+    "create-next-app": "^13.4.8",
     "custom-env": "^2.0.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
