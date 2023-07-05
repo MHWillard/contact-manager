@@ -27,6 +27,7 @@ describe('given a database object', () => {
 
         conn.kill();
 
+        console.log(result)
         expect(result).toEqual(expect.any(Object));
     })
 
@@ -52,10 +53,23 @@ describe('given a database object', () => {
 describe('given a database and API routes', () => {
     //given a database and a GET route, WHEN we access that rut
     it('should return a 200 status code', async() => {
-        //const res = await request.get('/users');
+        const res = await request('http://localhost:3000').get('/');
 
-        //expect(res.statusCode).toBe(200);
-        //done();
+        expect(res.statusCode).toBe(200);
+    });
+
+    it('should return a user when polled', async() => {
+        const res = await request('http://localhost:3000').get('/users');
+
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toMatchObject({name: 'user'})
+    });
+
+    it('should return a list of contacts from the contact database', async() => {
+        const res = await request('http://localhost:3000').get('/contacts');
+
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toEqual(expect.any(Object));
     });
 })
 
