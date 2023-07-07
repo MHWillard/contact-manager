@@ -15,15 +15,16 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/contacts', async (req, res) => {
-  conn.setClient();
-  const command = "SELECT * FROM contacts"
   try {
-  const result = await query.selectQuery(conn.getClient(), command);
-  res.status(200).json(result.rows[0])
+    conn.setClient();
+    conn.connect();
+    const command = "SELECT * FROM contacts"
+    const result = await query.selectQuery(conn, command);
+    res.json(result.rows)
   } catch (e) {
-    next(e);
+    console.error(e);
+    res.status(500).json({ error: 'An error occurred while fetching data' });
   }
-  //res.status(200).json({name: 'user', id: 1})
   conn.kill()
 })
 

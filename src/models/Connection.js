@@ -1,12 +1,6 @@
-//import {Client} from 'pg'
-//import * as ck from 'ckey'
-
-//import express from 'express'
-
 const Client = require('pg').Client
 const ck = require('ckey')
 
-//export default 
 class Connection {
     constructor() {
         this.client;
@@ -26,6 +20,8 @@ class Connection {
             password: env_password,
             port: env_port
         })
+
+        console.log("Client set.")
     }
 
     getClient() {

@@ -22,12 +22,11 @@ describe('given a database object', () => {
         conn.connect();
 
         const command = "SELECT * FROM contacts";
-        const client = conn.getClient();
-        const result = await query.selectQuery(client, command);
+        const result = await query.selectQuery(conn, command);
 
         conn.kill();
 
-        console.log(result)
+        console.log("Result is:" + result.rows)
         expect(result).toEqual(expect.any(Object));
     })
 
@@ -37,12 +36,11 @@ describe('given a database object', () => {
         conn.setClient();
         conn.connect();
 
-        const client = conn.getClient();
         const newContact = new Contact("testname", "test@testemail.com", "555-1234","Test Dummy","Friend","Video game testing, security testing, shuffleboard","No notes so far");
-        await query.insertQuery(client, newContact);
+        await query.insertQuery(conn, newContact);
 
         const command = "SELECT * FROM contacts where name = 'testname'";
-        const result = await query.selectQuery(client, command);
+        const result = await query.selectQuery(conn, command);
 
         conn.kill();
 
@@ -74,8 +72,11 @@ describe('given a database and API routes', () => {
 })
 
 //X TODO: set up PostgreSQL in node
-//TODO: create/test users get route: use Supertest
+//X TODO: create/test users get route: use Supertest
 //TODO: set up basic frontend: React, NextJS
+//// TODO: design layout of single-page app components
+//// TODO: review how NextJS handles React
+//// TODO: learn how to write tests for Reach components
 //TODO: connect frontend to backend and test users GET
 //TODO: have frontend render list of users in DB
 //TODO: create ability to add users to DB from frontend button
