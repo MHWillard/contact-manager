@@ -73,10 +73,11 @@ describe('given a database and API routes', () => {
 
 //X TODO: set up PostgreSQL in node
 //X TODO: create/test users get route: use Supertest
-//TODO: set up basic frontend: React, NextJS
+//X TODO: set up basic frontend: React, NextJS
+//// TODO: walk through basic NextJS tutorial: https://nextjs.org/learn/basics/create-nextjs-app
+//// learn how to write components; learn how to write jest tests, use them to build up components and design
 //// TODO: design layout of single-page app components
-//// TODO: review how NextJS handles React
-//// TODO: learn how to write tests for Reach components
+//// TODO: learn how to write tests for React components: https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library
 //TODO: connect frontend to backend and test users GET
 //TODO: have frontend render list of users in DB
 //TODO: create ability to add users to DB from frontend button
