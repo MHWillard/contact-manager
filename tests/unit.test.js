@@ -51,20 +51,20 @@ describe('given a database object', () => {
 describe('given a database and API routes', () => {
     //given a database and a GET route, WHEN we access that rut
     it('should return a 200 status code', async() => {
-        const res = await request('http://localhost:3000').get('/');
+        const res = await request('http://localhost:5000').get('/');
 
         expect(res.statusCode).toBe(200);
     });
 
     it('should return a user when polled', async() => {
-        const res = await request('http://localhost:3000').get('/users');
+        const res = await request('http://localhost:5000').get('/users');
 
         expect(res.statusCode).toBe(200);
         expect(res.body).toMatchObject({name: 'user'})
     });
 
     it('should return a list of contacts from the contact database', async() => {
-        const res = await request('http://localhost:3000').get('/contacts');
+        const res = await request('http://localhost:5000').get('/contacts');
 
         expect(res.statusCode).toBe(200);
         expect(res.body).toEqual(expect.any(Object));
@@ -73,16 +73,16 @@ describe('given a database and API routes', () => {
 
 //X TODO: set up PostgreSQL in node
 //X TODO: create/test users get route: use Supertest
-//X TODO: set up basic frontend: React, NextJS
-//// TODO: walk through basic NextJS tutorial: https://nextjs.org/learn/basics/create-nextjs-app
-//// learn how to write components; learn how to write jest tests, use them to build up components and design
-//// TODO: design layout of single-page app components
-//// TODO: learn how to write tests for React components: https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library
+//TODO: set up basic frontend: React, NextJS
+//// X TODO: design layout of single-page app components: Header, search, contactList, pagination
+//// TODO: review how NextJS handles React
+//// TODO: learn how to write tests for Reach components
 //TODO: connect frontend to backend and test users GET
 //TODO: have frontend render list of users in DB
 //TODO: create ability to add users to DB from frontend button
 //TODO: move to deployment on hosted instance
 //TODO: from hosted instance, do e2e tests
+//TODO: do basic CSS styling with Tailwind
 
 // GIVEN a database, and we can successfully connect to it, WHEN I do an insert on the contacts table to add a user, THEN it should successfully add it to the table.
 // GIVEN a database, and we can successfully connect to it, WHEN I specify the user, the field, and the new value, THEN it should successfully change that field's value for that user in the table.
