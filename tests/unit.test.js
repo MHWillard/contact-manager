@@ -75,8 +75,8 @@ describe('given a database and API routes', () => {
 //X TODO: create/test users get route: use Supertest
 //TODO: set up basic frontend: React, NextJS
 //// X TODO: design layout of single-page app components: Header, search, contactList, pagination
-//// TODO: review how NextJS handles React
-//// TODO: learn how to write tests for Reach components
+//// TODO: ~ review how NextJS handles React
+//// TODO: ~ learn how to write tests for Reach components
 //TODO: connect frontend to backend and test users GET
 //TODO: have frontend render list of users in DB
 //TODO: create ability to add users to DB from frontend button

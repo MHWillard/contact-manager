@@ -39,14 +39,6 @@
         "chunks": [],
         "async": false
       }
-    },
-    "(app-client)/./node_modules/next/dist/client/image-component.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/client/image-component.js",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
     }
   },
   "edgeSSRModuleMapping": {},
@@ -128,22 +120,6 @@
       "name": "*",
       "chunks": [
         "app-client-internals:static/chunks/app-client-internals.js"
-      ],
-      "async": false
-    },
-    "C:\\Work\\Coding\\contact-manager\\client\\node_modules\\next\\dist\\client\\image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Work\\Coding\\contact-manager\\client\\node_modules\\next\\dist\\esm\\client\\image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },

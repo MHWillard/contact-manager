@@ -7,16 +7,10 @@ describe("Search", () => {
     it("renders the Search bar", () => {
         render(<Search />);
 
-        expect(screen.getByTestId("search-bar")).toBeInTheDocument();
+        const searchBar = screen.getByRole('heading', { name: /Search/i });
+        expect(searchBar).toBeInTheDocument();
     });
 
-    it("renders Home and its heading", () => {
-        render(<Home />)
-
-        const heading = screen.getByRole('heading', {
-          name: /welcome to next\.js!/i,
-        })
-    
-        expect(heading).toBeInTheDocument()
-    });
 });
+
+// TESTING: use React Testing Library for testing rendering or query off of DOM methods. Arrange the app like normal in react.
