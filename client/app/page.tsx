@@ -1,5 +1,5 @@
 //import Image from 'next/image'
-import Search from './Search'
+import Search from './search'
 import Main from './main'
 
 export default function Home() {
