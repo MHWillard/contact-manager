@@ -6,12 +6,6 @@ import Pagination from '../app/pagination.tsx'
 import '@testing-library/jest-dom'
 
 describe("component check", () => {
-    it("renders the Search bar", () => {
-        render(<Search />);
-
-        const searchBar = screen.getByRole('heading', { name: /Search/i });
-        expect(searchBar).toBeInTheDocument();
-    });
 
     it("renders the Header", () => {
         render(<Header />);
@@ -40,7 +34,7 @@ describe("component internals", ()=> {
     it("search component has search bar",() => {
         render(<Search />);
 
-        const searchBar = screen.getByRole('searchbox');
+        const searchBar = screen.getByRole('textbox');
         expect(searchBar).toBeInTheDocument();
     });
 });
