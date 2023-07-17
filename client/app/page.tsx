@@ -1,13 +1,16 @@
 //import Image from 'next/image'
 import Search from './search'
-import Main from './main'
+import Header from './header'
+import List from './list'
+import Pagination from './pagination'
 
 export default function Home() {
   return (
     <main>
-      <div>Home page</div>
+      <div><Header /></div>
       <div><Search /></div>
-      <div><Main /></div>
+      <div><List /></div>
+      <div><Pagination /></div>
     </main>
   )
 }
