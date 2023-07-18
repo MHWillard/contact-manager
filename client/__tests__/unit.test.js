@@ -2,6 +2,7 @@ import {render, screen} from '@testing-library/react'
 import Search from '../app/search.tsx'
 import Header from '../app/header.tsx'
 import ContactBox from '../app/contactbox.tsx'
+import Contact from '../app/contact.tsx'
 import Pagination from '../app/pagination.tsx'
 import '@testing-library/jest-dom'
 
@@ -31,12 +32,19 @@ describe("component check", () => {
 });
 
 describe("component internals", ()=> {
-    it("search component has search bar",() => {
+    test("search component has search bar",() => {
         render(<Search />);
 
         const searchBar = screen.getByRole('textbox');
         expect(searchBar).toBeInTheDocument();
     });
+
+    test('contact component loads data accurately', ()=> {
+        const testContact = {name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}
+        render(<Contact contact={testContact} />)
+
+        expect(screen.getByRole('list-item')).toHaveTextContent('dummyname')
+    })
 });
 
 // TESTING: use React Testing Library for testing rendering or query off of DOM methods. Arrange the app like normal in react.
