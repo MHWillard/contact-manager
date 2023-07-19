@@ -1,4 +1,4 @@
-type ContactProps = {
+interface ContactProps {
     contact: {
         name: string, 
         email: string, 

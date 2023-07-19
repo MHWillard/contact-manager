@@ -4,7 +4,9 @@ import Header from '../app/header.tsx'
 import ContactBox from '../app/contactbox.tsx'
 import Contact from '../app/contact.tsx'
 import Pagination from '../app/pagination.tsx'
+import List from '../app/list.tsx'
 import '@testing-library/jest-dom'
+import testContactList from './mockdata/mockdata.js';
 
 describe("component check", () => {
 
@@ -44,6 +46,18 @@ describe("component internals", ()=> {
         render(<Contact contact={testContact} />)
 
         expect(screen.getByRole('list-item')).toHaveTextContent('dummyname')
+    })
+
+    test('contact box component gets expected list of contacts',() =>{
+        render(<List contacts={testContactList} />);
+
+        const contactOne = screen.getByText(/dummyname/)
+        const contactTwo = screen.getByText(/dingo/)
+        const contactThree = screen.getByText(/bingo/)
+
+        expect(contactOne).toBeInTheDocument();
+        expect(contactTwo).toBeInTheDocument();
+        expect(contactThree).toBeInTheDocument();
     })
 });
 
