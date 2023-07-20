@@ -1,18 +1,28 @@
+import Contact from './contact'
+
+interface IContacts {
+    name: string, 
+    email: string, 
+    number: string,
+    job: string, 
+    status: string, 
+    interests: string, 
+    notes: string
+}
+
 interface ContactListProps {
-    contact: {
-        name: string, 
-        email: string, 
-        number: string,
-        job: string, 
-        status: string, 
-        interests: string, 
-        notes: string
-    }
+    contacts: IContacts[];
 }
 
 //array of contact objects?
 
+export default function List({contacts}: ContactListProps) {
+    const renderedContactList = contacts.map(contact => 
+        <Contact contact={contact} />);
 
-export default function List() {
-    return (<div id='app-header' role="list"><h3>Contact List</h3></div>)
+    return (
+    <div id='app-header' role="list">
+        {renderedContactList}
+    </div>
+    )
 }

@@ -11,5 +11,13 @@ interface ContactProps {
 }
 
 export default function Contact({contact}: ContactProps) {
-    return (<div id='contact' role="list-item">{contact.name}</div>)
+    return (
+    <div id='contact' role="list-item">
+        {contact.name}  {contact.email}  {contact.number}  {contact.job}  {contact.status}  {contact.interests}  {contact.notes}
+    </div>
+    )
 }
+
+/*
+{name, email, number,job, status, interests, notes}
+*/
