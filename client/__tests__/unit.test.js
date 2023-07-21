@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react'
+import {render, screen, fireEvent} from '@testing-library/react'
 import Search from '../app/search.tsx'
 import Header from '../app/header.tsx'
 import ContactBox from '../app/contactbox.tsx'
@@ -67,9 +67,27 @@ describe("component internals", ()=> {
     })
 
     //given that I have a search bar component, when I type into it, then the component's internal value should equal what I type
+    test('given that I have a search bar component, when I type into it, then the component\'s searchValue should equal it to be submitted later to the API', ()=> {
+        render(<Search />);
+        const searchBar = screen.getByRole('textbox');
+        fireEvent.change(searchBar, {target: {value: 'bill billson'}});
+        expect(searchBar.value).toBe('bill billson')
+    })
 });
 
+describe('tests for mock API GET and other calls', () => {
+    test('Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new', ()=> {
+        render(<Search />);
+        const searchBar = screen.getByRole('textbox');
+        fireEvent.change(searchBar, {target: {value: 'bill billson'}});
+        //it does an api call via jest.mock(axios)
+        //returns a dummy contact list after initial render
+        //checks that these have been rendered appropriately
+    })
+})
+
 // TESTING: use React Testing Library for testing rendering or query off of DOM methods. Arrange the app like normal in react.
+// for testing internal data and such, use Jest asserts. Test for behavior to send to the backend and mock these API calls
 
 /*
 TODO: set up search bar

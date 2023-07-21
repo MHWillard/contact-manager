@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <div><Header /></div>
       <div><Search /></div>
-      <div><List /></div>
+      <div><List contacts={contacts} /></div>
       <div><Pagination /></div>
     </main>
   )
