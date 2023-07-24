@@ -5,6 +5,7 @@ import ContactBox from '../app/contactbox.tsx'
 import Contact from '../app/contact.tsx'
 import Pagination from '../app/pagination.tsx'
 import List from '../app/list.tsx'
+import Home from '../app/page.tsx'
 import '@testing-library/jest-dom'
 //import testContactList from './mockdata/mockdata.js';
 
@@ -77,12 +78,17 @@ describe("component internals", ()=> {
 
 describe('tests for mock API GET and other calls', () => {
     test('Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new', ()=> {
-        render(<Search />);
+        //mock API call
+        //get returned mock data
+        //render in List
+        //check for bill billson
+
+        render(<Home />);
         const searchBar = screen.getByRole('textbox');
         fireEvent.change(searchBar, {target: {value: 'bill billson'}});
-        //it does an api call via jest.mock(axios)
-        //returns a dummy contact list after initial render
-        //checks that these have been rendered appropriately
+
+        
+        expect(screen.getByText(/bill billson/)).toBeInTheDocument();
     })
 })
 
