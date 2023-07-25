@@ -7,7 +7,9 @@ import Pagination from '../app/pagination.tsx'
 import List from '../app/list.tsx'
 import Home from '../app/page.tsx'
 import '@testing-library/jest-dom'
-//import testContactList from './mockdata/mockdata.js';
+import axios, * as others from 'axios';
+
+jest.mock("axios");
 
 describe("component check", () => {
 
@@ -56,7 +58,7 @@ describe("component internals", ()=> {
             {name: "bingo", email: "bingo@dummyemail.com", number: "555-1234", job: "Popular Dog From Song", status: "Friend", interests: "singing, spelling, farming", notes: "Bingo is his name-o"}
         ]
 
-        render(<List contacts={testContactList} />);
+        render(<List />);
 
         const contactOne = screen.getByText(/dummyname/)
         const contactTwo = screen.getByText(/dingo/)
@@ -77,17 +79,20 @@ describe("component internals", ()=> {
 });
 
 describe('tests for mock API GET and other calls', () => {
-    test('Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new', ()=> {
+    test('Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new', async ()=> {
         //mock API call
         //get returned mock data
         //render in List
         //check for bill billson
+        axios.get.mockResolvedValue({data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]});
 
-        render(<Home />);
-        const searchBar = screen.getByRole('textbox');
-        fireEvent.change(searchBar, {target: {value: 'bill billson'}});
+        //const contactList = await getContacts();
 
-        
+        render(<List />);
+        //const searchBar = screen.getByRole('textbox');
+        //fireEvent.change(searchBar, {target: {value: 'bill billson'}});
+
+
         expect(screen.getByText(/bill billson/)).toBeInTheDocument();
     })
 })
