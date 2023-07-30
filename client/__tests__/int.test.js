@@ -23,17 +23,37 @@ test('check if all components render',()=>{
 })
 
 describe('given that contacts are loaded in the database', () =>{
-    test('when i load the web page', ()=>{
+    test('loading contacts from API, rendering them, and changing based on text value from search', ()=>{
         //arrange, act, assert
         //given, when, then
-        
-        render(<List contacts={testContactList} />);
-        //then the contacts should appear in the contact list box as their own components
-        // TODO: assert that contact-box is populated with three list contacts
+
+        //given that contacts are loaded in the database, when I render the component, then the contacts should appear in the contact list box as their own components with the correct information
+        //arrange
+        //fake API mock that returns contact list
+        //act
+        render(<Home />);
+        //assert
+        const contactOne = screen.getByText(/dummyname/)
+        const contactTwo = screen.getByText(/dingo/)
+        const contactThree = screen.getByText(/bill billards/)
+        const contactFour = screen.getByText(/bill billingsley/)
+
+        expect(contactOne).toBeInTheDocument();
+        expect(contactTwo).toBeInTheDocument();
+        expect(contactThree).toBeInTheDocument();
+        expect(contactFour).toBeInTheDocument();
 
         //and when I type for a contact name in the search bar
+        const searchBar = screen.getByRole('textbox');
+        fireEvent.change(searchBar, {target: {value: 'bill bill'}});
         
         //then the contacts filter to only contacts that match that text
+        updateListState()
+
+        expect(contactOne).not.toBeInTheDocument();
+        expect(contactTwo).not.toBeInTheDocument();
+        expect(contactThree).toBeInTheDocument();
+        expect(contactFour).toBeInTheDocument();
 
         //mock contact data
         //dump into List component
