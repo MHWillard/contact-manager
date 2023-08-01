@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react'
+import {render, screen, fireEvent} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Home from '../app/page.tsx'
 import List from '../app/list.tsx'
@@ -30,7 +30,9 @@ describe('given that contacts are loaded in the database', () =>{
         //given that contacts are loaded in the database, when I render the component, then the contacts should appear in the contact list box as their own components with the correct information
         //arrange
         //fake API mock that returns contact list
+
         //act
+        ////pass into Home state
         render(<Home />);
         //assert
         const contactOne = screen.getByText(/dummyname/)
@@ -48,8 +50,6 @@ describe('given that contacts are loaded in the database', () =>{
         fireEvent.change(searchBar, {target: {value: 'bill bill'}});
         
         //then the contacts filter to only contacts that match that text
-        updateListState()
-
         expect(contactOne).not.toBeInTheDocument();
         expect(contactTwo).not.toBeInTheDocument();
         expect(contactThree).toBeInTheDocument();

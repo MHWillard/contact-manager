@@ -17,7 +17,3 @@ export default function Contact({contact}: ContactProps) {
     </div>
     )
 }
-
-/*
-{name, email, number,job, status, interests, notes}
-*/
