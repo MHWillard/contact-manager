@@ -1,5 +1,5 @@
 import {render, screen, fireEvent} from '@testing-library/react'
-import Search from '../app/search.js'
+import Search from '../app/search.tsx'
 import Header from '../app/header.tsx'
 import ContactBox from '../app/contactbox.tsx'
 import Contact from '../app/contact.tsx'
@@ -58,7 +58,7 @@ describe("component internals", ()=> {
             {name: "bingo", email: "bingo@dummyemail.com", number: "555-1234", job: "Popular Dog From Song", status: "Friend", interests: "singing, spelling, farming", notes: "Bingo is his name-o"}
         ]
 
-        render(<List />);
+        render(<List contacts={testContactList} />);
 
         const contactOne = screen.getByText(/dummyname/)
         const contactTwo = screen.getByText(/dingo/)
@@ -86,9 +86,9 @@ describe('tests for mock API GET and other calls', () => {
         //check for bill billson
         axios.get.mockResolvedValue({data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]});
 
-        //const contactList = await getContacts();
+        const contactList = await getContacts();
 
-        render(<List />);
+        render(<List contacts={contactList} />);
         //const searchBar = screen.getByRole('textbox');
         //fireEvent.change(searchBar, {target: {value: 'bill billson'}});
 

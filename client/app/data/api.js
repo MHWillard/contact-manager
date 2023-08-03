@@ -1,0 +1,1 @@
+//api talkes to backend with axios to get data normally as a class function
