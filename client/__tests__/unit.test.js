@@ -6,10 +6,13 @@ import Contact from '../app/contact.tsx'
 import Pagination from '../app/pagination.tsx'
 import List from '../app/list.tsx'
 import Home from '../app/page.tsx'
-import '@testing-library/jest-dom'
-import axios, * as others from 'axios';
 
-jest.mock("axios");
+import {API} from '../app/data/api'
+
+import '@testing-library/jest-dom'
+import nock from 'nock';
+
+//jest.mock("axios");
 
 describe("component check", () => {
 
@@ -78,23 +81,43 @@ describe("component internals", ()=> {
     })
 });
 
-describe('tests for mock API GET and other calls', () => {
-    test('Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new', async ()=> {
+describe('API and mock API tests', () => {
+    test('checks for API returning correct contact data', async ()=> {
         //mock API call
         //get returned mock data
-        //render in List
         //check for bill billson
-        axios.get.mockResolvedValue({data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]});
 
-        const contactList = await getContacts();
+        //arrange
+        nock('http://localhost:5000').get('/contacts').reply(200, {
+            data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
+        });
+        const api = new API();
 
-        render(<List contacts={contactList} />);
+        //act
+        const contacts = await api.getContactData();
+
+        //assert
+        expect(contacts.data[1]["name"]).toEqual("bill billson")
+    });
+
+    test('full normal API test', async () => {
+        const api = new API();
+
+        //act
+        const contacts = await api.getContactData();
+
+        expect(contacts[1]["name"]).toEqual("bill billson")
+    });
+
+    /*
+    Given that I\'m a user searching for a contact, when I type a name into the search bar, then it will return only contacts that match that name, and this changes every time I type something new
         //const searchBar = screen.getByRole('textbox');
         //fireEvent.change(searchBar, {target: {value: 'bill billson'}});
 
+        //render(<List contacts={contactList} />);
+        //expect(screen.getByText(/bill billson/)).toBeInTheDocument();
 
-        expect(screen.getByText(/bill billson/)).toBeInTheDocument();
-    })
+    */
 })
 
 // TESTING: use React Testing Library for testing rendering or query off of DOM methods. Arrange the app like normal in react.

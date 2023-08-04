@@ -141,9 +141,9 @@
     }
   },
   "entryCSSFiles": {
+    "C:\\Work\\Coding\\contact-manager\\client\\app\\page": [],
     "C:\\Work\\Coding\\contact-manager\\client\\app\\layout": [
       "static/css/app/layout.css"
-    ],
-    "C:\\Work\\Coding\\contact-manager\\client\\app\\page": []
+    ]
   }
 }
