@@ -86,18 +86,22 @@ describe('API and mock API tests', () => {
         //mock API call
         //get returned mock data
         //check for bill billson
+        //http://localhost:5000/contacts
 
         //arrange
         nock('http://localhost:5000').get('/contacts').reply(200, {
-            data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
+            //data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
+            data: "bill billson"
         });
         const api = new API();
 
         //act
         const contacts = await api.getContactData();
+        const found = contacts.includes('bill billson');
 
         //assert
-        expect(contacts.data[1]["name"]).toEqual("bill billson")
+        //expect(contacts.data[1]["name"]).toEqual("bill billson")
+        expect(found.data).toEqual("bill billson")
     });
 
     test('full normal API test', async () => {
@@ -105,8 +109,12 @@ describe('API and mock API tests', () => {
 
         //act
         const contacts = await api.getContactData();
+        //const found = contacts.includes('bill billson');
+        console.log(JSON.stringify(contacts))
 
-        expect(contacts[1]["name"]).toEqual("bill billson")
+        //expect(contacts.data[1]["name"]).toEqual("bill billson")
+        //expect(found).toBeTruthy();
+        expect(contacts.data).toEqual("bill billson")
     });
 
     /*
