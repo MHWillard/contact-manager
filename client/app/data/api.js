@@ -5,7 +5,7 @@ import axios, * as others from 'axios';
 export class API {
     async getContactData() {
         //let contacts = {data: 'bill billson'}
-        const res = await axios.get('http://localhost:5000/contacts')
+        const res = await axios.get('http://localhost:3001/contacts')
         const data = res.data;
         return data;
 

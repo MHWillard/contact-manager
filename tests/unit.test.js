@@ -51,20 +51,20 @@ describe('given a database object', () => {
 describe('given a database and API routes', () => {
     //given a database and a GET route, WHEN we access that rut
     it('should return a 200 status code', async() => {
-        const res = await request('http://localhost:5000').get('/');
+        const res = await request('http://localhost:3001').get('/');
 
         expect(res.statusCode).toBe(200);
     });
 
     it('should return a user when polled', async() => {
-        const res = await request('http://localhost:5000').get('/users');
+        const res = await request('http://localhost:3001').get('/users');
 
         expect(res.statusCode).toBe(200);
-        expect(res.body).toMatchObject({name: 'user'})
+        expect(res.body).toMatchObject([{id: 1, name: 'user'}])
     });
 
     it('should return a list of contacts from the contact database', async() => {
-        const res = await request('http://localhost:5000').get('/contacts');
+        const res = await request('http://localhost:3001').get('/contacts');
 
         expect(res.statusCode).toBe(200);
         expect(res.body).toEqual(expect.any(Object));

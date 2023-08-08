@@ -16,7 +16,7 @@ export default function Home() {
   ]
 
   const data = api.getContactData();
-  console.log("data: " + data);
+  console.log(JSON.stringify(data));
 
   return (
     <main>
