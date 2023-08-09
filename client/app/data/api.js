@@ -1,4 +1,5 @@
 import axios, * as others from 'axios';
+//swr library?
 
 //api talkes to backend with axios to get data normally as a class function
 //setup: connecting frontend to backend properly: this works, next is to adapt to a testing format
