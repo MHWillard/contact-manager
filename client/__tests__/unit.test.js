@@ -11,8 +11,9 @@ import {API} from '../app/data/api'
 
 import '@testing-library/jest-dom'
 import nock from 'nock';
+import axios from 'axios';
 
-//jest.mock("axios");
+jest.mock("axios");
 
 describe("component check", () => {
 
@@ -89,16 +90,19 @@ describe('API and mock API tests', () => {
         //http://localhost:5000/contacts
 
         //arrange
-        nock('http://localhost:3001').get('/contacts').reply(200, {
-            data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
-        });
+        //nock('http://localhost:3001').get('/contacts').reply(200, {
+            //data: [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
+        //});
+        const contactData = [{name: "dummyname", email: "dummy@dummyemail.com", number: "555-1234", job: "Test Dummy", status: "Friend", interests: "getting hit, testing vehicles", notes: "Not too bright"}, {name: "bill billson", email: "dingo@dummyemail.com", number: "555-1234", job: "Simple Dingo", status: "Friend", interests: "eating meat", notes: "Animal?"}]
+        //axios.get.mockResolvedValueOnce(contactData);
         const api = new API();
 
         //act
-        const contacts = await api.getContactData();
+        //const result = await api.getContactData();
 
         //assert
-        expect(contacts.data[1]["name"]).toEqual("bill billson")
+        //expect(result).toEqual(contactData)
+        await expect(api.getContactData()).resolves.toBe(contactData);
     });
 
     test('full normal API test', async () => {
@@ -109,9 +113,9 @@ describe('API and mock API tests', () => {
         //const found = contacts.includes('bill billson');
         console.log(JSON.stringify(contacts))
 
-        //expect(contacts.data[1]["name"]).toEqual("bill billson")
+        expect(contacts.data[1]["name"]).toEqual("dummyname")
         //expect(found).toBeTruthy();
-        expect(contacts.data).toEqual("bill billson")
+        //expect(contacts.data).toEqual("bill bills")
     });
 
     /*

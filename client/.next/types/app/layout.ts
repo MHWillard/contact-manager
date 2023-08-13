@@ -1,4 +1,4 @@
-// File: C:\Work\Coding\contact-manager\client\app\layout.tsx
+// File: C:\Users\Gatack\Desktop\Coding\Coding Projects\contact-manager\client\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
