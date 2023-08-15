@@ -71,8 +71,16 @@ when i load the web page
 then the contacts should appear in the contact list box as their own components
 */
 
-// TODO: check for contacts bleeding in and selectable
-// TODO: check pagination
-// TODO: check for multiple filtering based on search
-// TODO: filter, click, close, filter again
-// TODO: click and close contact in list
+/*
+TODO Tests to Write
+- frontend can otherwise poll and get backend data
+- search bar captures value
+- captured search bar value runs search on API and returns contacts that match
+- Header displays proper name and alignment and style
+- Entire app is centered and responsive
+- Contact list repopulates automatically with relevant contacts
+- Contact list loads a contact component for each contact
+- The contact component has all proper data and arrangements laid out in correct style
+- Pagination has pages youj can jump to if contacts are too long
+- You can click the number of the page to go to it or use the prev/next buttons to flip pages
+*/

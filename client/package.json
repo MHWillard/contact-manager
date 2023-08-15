@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watch --env=jsdom",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
