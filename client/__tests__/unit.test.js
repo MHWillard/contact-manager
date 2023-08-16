@@ -84,6 +84,8 @@ describe("component internals", ()=> {
     })
 });
 
+// ==> do these tests with fetch-mock or axios-mock-adapter for something that actually works more in browser
+
 /* describe('API and mock API tests', () => {
     test('checks for API returning correct contact data', async ()=> {
         //mock API call

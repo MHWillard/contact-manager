@@ -73,7 +73,7 @@ then the contacts should appear in the contact list box as their own components
 
 /*
 TODO Tests to Write
-- frontend can otherwise poll and get backend data
+X frontend can otherwise poll and get backend data
 - search bar captures value
 - captured search bar value runs search on API and returns contacts that match
 - Header displays proper name and alignment and style
